@@ -4,71 +4,337 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hub class html with css</title>
-    <link rel="stylesheet" href="first.css">
+    <style>
+        .hi{
+            padding-top: 5%;
+            padding-left: 10%;
+        }
+        .co{
+            color:aqua;
+        }
+
+        .po{
+            color: gray;
+            padding-left: 10%;
+        }
+
+        #exp{
+            color: gray;
+            width: 500px;
+            display: flex;
+            gap: 30px;
+        }
+
+        #di{
+            display: flex;
+            gap:10px;
+            margin-left: 10%;
+            flex-wrap: wrap;
+        }
+
+        #sk{
+            background-color: gray;
+            width: 70px;
+            height: 30px;
+            text-align: center;
+            border-radius: 15px;
+            line-height: 30px;   
+        }
+
+        #i{
+            width: 350px;
+            height: 350px;
+            border-radius:50%; 
+            object-fit: cover;
+        }
+
+        #di1{
+            display: flex;
+            gap:10px;
+            padding-left: 10%;
+            flex-wrap: wrap;
+        }
+
+        body{
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .nay {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; 
+            background-color: pink;
+            height: 50px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1000;
+        }
+
+        #hy{
+            font-size: 25px;
+            line-height: 50px;
+            padding-left: 10px;
+            margin: 0;
+        }
+
+        ul{
+            display: flex;
+            gap: 10px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li a{
+            text-decoration: none;
+            color: black;
+        }
+
+        #fo{
+            width: 100%;
+            height: auto;
+            background-color: lightgray;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px 0;
+        }
+
+        #ig1{
+            width: 450px;
+            height: 350px;
+            margin-top: 15px;
+            opacity: 1;
+            max-width: 90%;
+        }
+
+        /* === زر القائمة للموبايل === */
+        .menu-icon {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            width: 30px;
+            height: 20px;
+            justify-content: space-between;
+        }
+
+        .menu-icon div {
+            width: 100%;
+            height: 4px;
+            background-color: black;
+            border-radius: 2px;
+        }
+
+        /* === القائمة المنسدلة === */
+        .nav-links {
+            display: flex;
+        }
+
+        .nav-links.active {
+            display: block;
+        }
+
+        @media (max-width: 900px){
+            #di1 {
+                flex-direction: column;
+                align-items: center;
+                padding-left: 0;
+                text-align: center;
+            }
+
+            #i {
+                width: 250px;
+                height: 250px;
+                margin-top: 20px;
+            }
+
+            #exp {
+                width: auto;
+                justify-content: space-between;
+            }
+
+            #di {
+                justify-content: center;
+                margin-left: 0;
+            }
+
+            #fo {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* === موبايل === */
+        @media (max-width: 600px){
+            .menu-icon {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 50px;
+                right: 0;
+                background-color: pink;
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-links li {
+                padding: 10px 0;
+                border-bottom: 1px solid rgba(0,0,0,0.1);
+            }
+
+            ul li a {
+                color: black;
+                font-size: 18px;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+        }
+
+        /* === من الكود الأصلي === */
+        @media (max-width: 500px){
+            .hi{
+                font-size: 150%;
+                padding-left: 5%;
+            }
+            #pi{
+                font-size: 90%;
+                padding-left: 5% !important;
+            }
+            .po{
+                padding-left: 5% !important;
+            }
+            .co{
+                font-size: 150%;
+            }
+            #ex, #About{
+                font-size: 130%;
+            }
+            #di1{
+                padding-left: 5%;
+            }
+            #exp{
+                font-size: 90%;
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+            }
+            #i {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                position: static;
+                margin: 0 auto;
+                display: block;
+            }
+
+            #sk{
+                width: 60px;
+                font-size: 12px;
+            }
+            #ca{
+                font-size: 150%;
+            }
+
+            #fo{
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="nay">
-       <h1 id="hy">Maryam Wassem</h1>
-       <div id="uy">
-        <ul>
-            <li ><a href="#About">About me</a></li>
-            <li>Experience</li>
-            <li>Skill</li>
-        </ul>
-         </div>
+        <h1 id="hy">Maryam Wassem</h1>
+        <!-- زر القائمة للموبايل -->
+        <div class="menu-icon" id="menuIcon">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <!-- روابط التنقل -->
+        <div class="nav-links" id="navLinks">
+            <ul>
+                <li><a href="#About">About me</a></li>
+                <li><a href="#ex">Experience</a></li>
+                <li><a href="#di">Skill</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <h1 class="hi" >About <span class="co">Me</span></h1>
+    <h1 class="hi">About <span class="co">Me</span></h1>
     <p style="color: rgb(61, 50, 50); padding-left: 10%;" id="pi">I'm Maryam Wassem, Full Stack Developer from Baghdad</p>
-     <p class="po">a web Developer and create many programs  , including <br>websites and applications also iam good in the design <br>and write and i love work with a team </p>
-<div id="di1">
+    <p class="po">a web Developer and create many programs, including <br>websites and applications also iam good in the design <br>and write and i love work with a team </p>
+    
+    <div id="di1">
         <div>
-     <h1 id="ex" class="ex">Experience</h1>
-     <div id="exp"><span>Coder Shiyar course(html, css, js<br>,bootstrap,mysql)</span><span>(2022-2025)</span></div>
-     <br>
-        <div id="exp"><span>CapCut editor and canva</span><span>(2015-2025)</span></div>
-    <br>
-    <div id="exp"><span>word and power point and excel</span><span>(2020-2025)</span></div>
-    <h1 id="About">Skills Here:</h1>
-    <div id="di" >
-        <div>
-        <p id="sk">Html</p>
-        <p id="sk">Css</p>
-        <p id="sk">JS</p>
+            <h1 id="ex" class="ex">Experience</h1>
+            <div id="exp"><span>Coder Shiyar course (html, css, js, bootstrap, mysql)</span><span>(2022-2025)</span></div>
+            <br>
+            <div id="exp"><span>CapCut editor and canva</span><span>(2015-2025)</span></div>
+            <br>
+            <div id="exp"><span>word and power point and excel</span><span>(2020-2025)</span></div>
+            <h1 id="About">Skills Here:</h1>
+            <div id="di">
+                <div>
+                    <p id="sk">Html</p>
+                    <p id="sk">Css</p>
+                    <p id="sk">JS</p>
+                </div>
+                <div>
+                    <p id="sk">Bootstrap</p>
+                    <p id="sk">C#</p>
+                    <p id="sk">Mysql</p>
+                </div>
+                <div>
+                    <p id="sk">canva</p>
+                    <p id="sk">CapCut</p>
+                    <p id="sk">potoshop</p>
+                </div>
+                <div>
+                    <p id="sk">word</p>
+                    <p id="sk">p.p</p>
+                    <p id="sk">excel</p>
+                </div>
+            </div>
         </div>
         <div>
-        <p id="sk">Bootstrap</p>
-        <p id="sk">C#</p>
-        <p id="sk">Mysql</p>
-        </div>
-        <div>
-            <p id="sk">canva</p>
-            <p id="sk">CapCut</p>
-            <p id="sk">potoshop</p>
-        </div>
-        <div>
-            <p id="sk">word</p>
-            <p id="sk">p.p</p>
-            <p id="sk">excel</p>
+            <img src="frist.jpg" id="i"/>
         </div>
     </div>
-        </div>
-      <div>
-        <img src="frist.jpg" id="i"/>
-      </div>
-        </div>
         
-        <br>
-        <h1 style="text-align: center;" id="ca">Certificate</h1>
-        <div id="fo">
-            <div>
-                <img src="second.png" id="ig1"/>
-                </div>
-              <div>
+    <br>
+    <h1 style="text-align: center;" id="ca">Certificate</h1>
+    <div id="fo">
+        <div>
+            <img src="second.png" id="ig1"/>
+        </div>
+        <div>
             <img src="firt.png" id="ig1"/>
-           </div>
-           <div>
+        </div>
+        <div>
             <img src="js.png" id="ig1"/>
         </div>
-    </body>
+    </div>
+
+    <script>
+        // تفعيل القائمة عند الضغط
+        const menuIcon = document.getElementById('menuIcon');
+        const navLinks = document.getElementById('navLinks');
+
+        menuIcon.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+    </script>
+</body>
 </html>
